@@ -98,7 +98,7 @@ BotTab:CreateDropDown("Commands", {"Bot Gender", "Bot Morphs"}, function(t)
     end
 end)
 
---[[ BotTab:CreateDropDown("Gender", {}, function(t)
+BotTab:CreateDropDown("Gender", {}, function(t)
     if t == "" then
         
     elseif t == "" then
@@ -112,7 +112,7 @@ BotTab:CreateDropDown("Morph", {}, function(t)
     elseif t == "" then
         
     end
-end) ]]--
+end)
 
 BotTab:CreateTextBox("Type bot char here!", function(t)
     game.Players:Chat("/bot char ".. t)
