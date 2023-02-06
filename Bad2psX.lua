@@ -90,27 +90,79 @@ BotTab:CreateToggle("Enable Bot", function(t)
     end
 end)
 
-BotTab:CreateDropDown("Commands", {"Bot Gender", "Bot Morphs"}, function(t)
-    if t == "Bot Gender" then
-        game.Players:Chat("/bot gender")
-    elseif t == "Bot Morphs" then
-        game.Players:Chat("/bot morphs")
+BotTab:CreateDropDown("Genders", {"Female", "Male"}, function(t)
+    if t == "Female" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Female"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("GenderSystem"):WaitForChild("SetBotGenderEvent"):FireServer(unpack(args))
+    elseif t == "Male" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Male"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("GenderSystem"):WaitForChild("SetBotGenderEvent"):FireServer(unpack(args))
     end
 end)
 
-BotTab:CreateDropDown("Gender", {}, function(t)
-    if t == "" then
-        
-    elseif t == "" then
-        
-    end
-end)
+BotTab:CreateDropDown("Morphs", {"Big female", "Small female", "Big futa", "Small futa", "Femboy" ,"Male"}, function(t)
+    if t == "Big female" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Female",
+    [3] = "01Female",
+    [4] = "Female 02"
+}
 
-BotTab:CreateDropDown("Morph", {}, function(t)
-    if t == "" then
-        
-    elseif t == "" then
-        
+game:GetService("ReplicatedStorage").Events.MorphSystem.MorphPlayerEvent:FireServer(unpack(args))
+    elseif t == "Small female" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Female",
+    [3] = "01Female",
+    [4] = "Female 01"
+}
+
+game:GetService("ReplicatedStorage").Events.MorphSystem.MorphPlayerEvent:FireServer(unpack(args))
+    elseif t == "Big futa" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Female",
+    [3] = "02Futa",
+    [4] = "Futa 02"
+}
+
+game:GetService("ReplicatedStorage").Events.MorphSystem.MorphPlayerEvent:FireServer(unpack(args))
+    elseif t == "Small futa" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Female",
+    [3] = "02Futa",
+    [4] = "Futa 01"
+}
+
+game:GetService("ReplicatedStorage").Events.MorphSystem.MorphPlayerEvent:FireServer(unpack(args))
+    elseif t == "Femboy" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Male",
+    [3] = "02Femboy",
+    [4] = "Femboy 01"
+}
+
+game:GetService("ReplicatedStorage").Events.MorphSystem.MorphPlayerEvent:FireServer(unpack(args))
+    elseif t == "Male" then
+        local args = {
+    [1] = workspace:WaitForChild(game.Players.LocalPlayer.Name.."_Bot"),
+    [2] = "Male",
+    [3] = "01Male",
+    [4] = "Male 01"
+}
+
+game:GetService("ReplicatedStorage").Events.MorphSystem.MorphPlayerEvent:FireServer(unpack(args))
     end
 end)
 
