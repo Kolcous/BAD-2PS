@@ -189,3 +189,12 @@ end)
 CommandsTab:CreateButton("Server start", function()
     game.Players:Chat("/server start")
 end)
+
+CommandsTab:CreateTextBox("Invite player!", function(t)
+local args = {
+    [1] = "Invite",
+    [2] = game:GetService("Players"):WaitForChild(t)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ServerSystem"):WaitForChild("InviteServerEvent"):FireServer(unpack(args))
+end)
